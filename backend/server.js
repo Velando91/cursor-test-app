@@ -4,7 +4,7 @@ const { Pool } = require('pg');
 require('dotenv').config();
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3001;
 
 // Middleware
 app.use(cors());
@@ -145,7 +145,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // Start server
-app.listen(PORT, async () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', async () => {
+  console.log(`Server running on http://0.0.0.0:${PORT}`);
   console.log('Connected to PostgreSQL database');
 });

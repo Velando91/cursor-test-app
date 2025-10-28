@@ -24,7 +24,8 @@ function App() {
   useEffect(() => {
     const fetchMeals = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/meals');
+        const apiBase = (import.meta as any).env.VITE_API_URL;
+        const response = await axios.get(`${apiBase}/api/meals`);
         setMeals(response.data);
       } catch (error) {
         console.error('Error fetching meals:', error);
