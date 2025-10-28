@@ -1,0 +1,432 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  margin: 0;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.sidebar-header h1 {
+  font-size: 1.8rem;
+  margin: 0 20px 30px 20px;
+  color: #333;
+  text-align: left;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 15px;
+}
+
+.nav-item {
+  padding: 14px 20px;
+  border: none;
+  background: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666;
+  text-align: left;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-item:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.nav-item.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 250px;
+  padding: 20px;
+}
+
+.container {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.navigation {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.nav-button {
+  padding: 12px 24px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.nav-button.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.subtitle {
+  color: #666;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.meal-selector {
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.select-box {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.select-box:hover {
+  border-color: #667eea;
+}
+
+.select-box:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.ingredients-container {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 2px solid #f0f0f0;
+}
+
+.ingredients-container h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.ingredients-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.star-button {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+  opacity: 0.4;
+}
+
+.star-button:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.star-button.starred {
+  opacity: 1;
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
+}
+
+.ingredients-list {
+  list-style: none;
+}
+
+.ingredients-list li {
+  background: #f8f9fa;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.ingredients-list li:hover {
+  background: #e9ecef;
+  transform: translateX(4px);
+}
+
+.ingredient-item.completed {
+  opacity: 0.6;
+}
+
+.ingredient-item.completed .ingredient-name {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.ingredient-item.completed .ingredient-quantity {
+  background: #e0e0e0;
+  color: #999;
+}
+
+.ingredient-name {
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+}
+
+.ingredient-quantity {
+  color: #667eea;
+  font-weight: 500;
+  background: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* Remove old navigation styles */
+.navigation {
+  display: none;
+}
+
+.nav-button {
+  display: none;
+}
+
+/* Favorites page styles */
+.favorites-page h2 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* About page styles */
+.about-page h2 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.about-page h3 {
+  color: #667eea;
+  font-size: 1.5rem;
+  margin: 30px 0 15px 0;
+}
+
+.about-section {
+  margin-bottom: 30px;
+}
+
+.about-section p {
+  color: #666;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.features-list, .how-to-list {
+  color: #666;
+  line-height: 2;
+  padding-left: 25px;
+}
+
+.features-list li, .how-to-list li {
+  margin-bottom: 12px;
+}
+
+.features-list strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.about-footer {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #667eea;
+  font-weight: 600;
+  margin-top: 40px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.empty-state h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.favorites-list {
+  display: grid;
+  gap: 15px;
+}
+
+.favorite-meal-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.favorite-meal-card:hover {
+  background: #e9ecef;
+  border-color: #667eea;
+  transform: translateX(4px);
+}
+
+.meal-info h3 {
+  margin: 0 0 5px 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.meal-info p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .main-content {
+    margin-left: 200px;
+  }
+
+  .container {
+    padding: 30px 20px;
+  }
+
+  .ingredients-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: relative;
+    height: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar-header h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 10px;
+  }
+
+  .nav-item {
+    white-space: nowrap;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .container {
+    border-radius: 0;
+    padding: 20px;
+  }
+}
+
