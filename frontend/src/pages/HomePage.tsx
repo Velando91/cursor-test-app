@@ -20,7 +20,8 @@ export function HomePage({ meals, favoriteMeals, onToggleFavorite }: HomePagePro
     if (selectedMealId) {
       setLoading(true);
       setCompletedIngredients(new Set());
-      axios.get(`http://localhost:3001/api/meals/${selectedMealId}/ingredients`)
+      const apiBase = (import.meta as any).env.VITE_API_URL;
+      axios.get(`${apiBase}/api/meals/${selectedMealId}/ingredients`)
         .then(response => {
           setIngredients(response.data);
           setLoading(false);
